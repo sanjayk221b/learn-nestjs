@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { EpisodesService } from './episodes.service';
 
 @Controller('episodes')
 export class EpisodesController {
+  constructor(private _episodesService: EpisodesService) {}
   @Get()
   findAll(@Query('sort') sort: 'asc' | 'desc' = 'desc') {
     console.log(sort);
